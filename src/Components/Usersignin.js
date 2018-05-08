@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import ChildToForm from './ChildToForm';
 
 
 class Signin extends Component {
@@ -38,6 +39,11 @@ class Signin extends Component {
 
    }
 
+   //this function is to test the onLoad testFunction and prop passing
+   testFunction(){
+     console.log('this is the props ' + this.props.name);
+   }
+
    //not working yet
    function (props){
      return <h1>Hello, {props.name}</h1>
@@ -50,15 +56,23 @@ class Signin extends Component {
 
   render() {
     return (
-      <div>
+      <div onLoad= {this.testFunction()}>
         <form onSubmit={this.handleClick}>
           <label>
-            Name:
-            <input type="text" name="name" ref="text" id="name" />
-
-          </label>
+            First Name:
+            <input type="text" name="fname" ref="text" id="name" />
+          </label><br></br>
+          <label>
+            Last Name:
+            <input type="text" name="lname" ref="text" id="lastname" />
+          </label><br></br>
+          <label>
+            Years Driving Experience:
+            <input type="number" name="experience" ref="text" id="yearsexperience" />
+          </label><br></br>
           <input type="submit" value="Submit"  />
         </form>
+        <ChildToForm />
       </div>
     );
   }

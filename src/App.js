@@ -4,6 +4,7 @@ import './App.css';
 import Signin from './Components/Usersignin';
 import NameofBusiness from './Components/Projects';
 import Header from './Components/Header';
+import ChildToForm from './Components/ChildToForm';
 
 class App extends Component {
   render() {
@@ -17,7 +18,8 @@ class App extends Component {
         </div>
        </div>
         <NameofBusiness />
-        <Signin />
+        <Signin name={'Bertha'}/>
+  
       </div>
     );
   }
