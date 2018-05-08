@@ -18,7 +18,11 @@ class Signin extends Component {
   handleClick(e){
     e.preventDefault();
     console.log('handle click works')
-    console.log(this.refs.text.value)
+    //lets save the name into a variable
+    var userName = document.getElementById('name').value;
+    console.log('var username is ' + userName);
+    //line below works same as above
+    //console.log(this.refs.text.value)
   }
 
   handleSubmit(event) {
@@ -31,6 +35,7 @@ class Signin extends Component {
      //test to get name from input
      //console.log('name ' + this.name.value)
     // console.log(event.name);
+
    }
 
    //not working yet
@@ -49,7 +54,7 @@ class Signin extends Component {
         <form onSubmit={this.handleClick}>
           <label>
             Name:
-            <input type="text" name="name" ref="text" />
+            <input type="text" name="name" ref="text" id="name" />
 
           </label>
           <input type="submit" value="Submit"  />
