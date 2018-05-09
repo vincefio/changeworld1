@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ChildToForm from './ChildToForm';
 
-
+var userName = 'vince'
 class Signin extends Component {
   constructor(props){
     super(props);
@@ -20,7 +20,7 @@ class Signin extends Component {
     e.preventDefault();
     console.log('handle click works')
     //lets save the name into a variable
-    var userName = document.getElementById('name').value;
+    userName = document.getElementById('name').value;
     console.log('var username is ' + userName);
     //line below works same as above
     //console.log(this.refs.text.value)
@@ -28,15 +28,16 @@ class Signin extends Component {
 
   handleSubmit(event) {
      event.preventDefault();
-     console.log('event works');
+     //console.log('event works');
      //test to see what is in props
-     console.log('Props: ' + this.props.name)
+    // console.log('Props: ' + this.props.name)
      //test for state
-     console.log('state ' + this.state.name)
+     //console.log('state ' + this.state.name)
      //test to get name from input
      //console.log('name ' + this.name.value)
     // console.log(event.name);
-
+    console.log('submit2 works')
+  console.log('var userName is ' + userName)
    }
 
    //this function is to test the onLoad testFunction and prop passing
@@ -55,6 +56,13 @@ class Signin extends Component {
 
 
   render() {
+    var user = {
+      name: "Anna",
+      hobbies: ["Sports"]
+    };
+
+    //userName="boozer";
+    console.log('username is ' + userName );
     return (
       <div onLoad= {this.testFunction()}>
         <form onSubmit={this.handleClick}>
@@ -72,7 +80,11 @@ class Signin extends Component {
           </label><br></br>
           <input type="submit" value="Submit"  />
         </form>
-        <ChildToForm />
+
+        //create a button to test username
+        <input type="submit" value="submit2" onClick={this.handleSubmit} />
+        // gonna practice sending some props
+        <ChildToForm username={"TestPropUserName"} user={userName} />
       </div>
     );
   }
