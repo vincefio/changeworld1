@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import ChildToForm from './ChildToForm';
 
-var userName = 'vince'
+var userName="Boozer";
+
 class Signin extends Component {
   constructor(props){
     super(props);
@@ -13,7 +14,11 @@ class Signin extends Component {
     //attempt to set initial state
     this.state = {name: ''};
 
-
+    this.state = {
+      name1: "",
+      name2: "",
+      experience: 0
+    };
   }
 
   handleClick(e){
@@ -24,7 +29,11 @@ class Signin extends Component {
     console.log('var username is ' + userName);
     //line below works same as above
     //console.log(this.refs.text.value)
+    this.setState({
+      name1: userName
+    });
   }
+
 
   handleSubmit(event) {
      event.preventDefault();
@@ -81,8 +90,9 @@ class Signin extends Component {
           <input type="submit" value="Submit"  />
         </form>
 
-        //create a button to test username
-        <input type="submit" value="submit2" onClick={this.handleSubmit} />
+
+
+        <h2>userName is {userName}</h2>
         // gonna practice sending some props
         <ChildToForm username={"TestPropUserName"} user={userName} />
       </div>
