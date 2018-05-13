@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 
 import ChildToForm from './ChildToForm';
 
-var userName="Boozer";
+var userName="";
+var userAge;
+var userExperience;
 
 class Signin extends Component {
   constructor(props){
     super(props);
 
     //bind in order to make "this" works (not working)
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     //attempt to set initial state
     this.state = {name: ''};
@@ -23,44 +24,27 @@ class Signin extends Component {
 
   handleClick(e){
     e.preventDefault();
-    console.log('handle click works')
     //lets save the name into a variable
     userName = document.getElementById('name').value;
-    console.log('var username is ' + userName);
+    userAge = document.getElementById('lastname').value;
+    userExperience = document.getElementById('yearsexperience').value;
     //line below works same as above
     //console.log(this.refs.text.value)
     this.setState({
-      name1: userName
+      name1: userName,
+      name2: userAge,
+      experience: userExperience
     });
   }
-
-
-  handleSubmit(event) {
-     event.preventDefault();
-     //console.log('event works');
-     //test to see what is in props
-    // console.log('Props: ' + this.props.name)
-     //test for state
-     //console.log('state ' + this.state.name)
-     //test to get name from input
-     //console.log('name ' + this.name.value)
-    // console.log(event.name);
-    console.log('submit2 works')
-  console.log('var userName is ' + userName)
-   }
 
    //this function is to test the onLoad testFunction and prop passing
    testFunction(){
      console.log('this is the props ' + this.props.name);
    }
 
-   //not working yet
-   function (props){
-     return <h1>Hello, {props.name}</h1>
-   }
 
    componentDidMount() {
-    console.log('I was triggered during componentDidMount')
+    //console.log('I was triggered during componentDidMount')
   }
 
 
@@ -73,7 +57,8 @@ class Signin extends Component {
     //userName="boozer";
     console.log('username is ' + userName );
     return (
-      <div onLoad= {this.testFunction()}>
+      <div id="mainDiv" onLoad= {this.testFunction()}>
+
         <form onSubmit={this.handleClick}>
           <label>
             First Name:
@@ -92,9 +77,11 @@ class Signin extends Component {
 
 
 
-        <h2>userName is {userName}</h2>
-        // gonna practice sending some props
-        <ChildToForm username={"TestPropUserName"} user={userName} />
+        <br></br>
+
+        <ChildToForm user={this.state.name1} userAge={this.state.name2} experience={this.state.experience}/>
+
+
       </div>
     );
   }

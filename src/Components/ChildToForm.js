@@ -11,9 +11,10 @@ class ChildToForm extends Component {
 
     return(
       <div>
-        <input type="submit" value="submit2" onClick={() => this.testName()}
-        className="btn btn-primary" />
-        <h3>Im a wee small child named {this.props.user}</h3>
+        <h2>Driver Profile</h2>
+        <h3>Name: {this.props.user}</h3>
+        <h3>Age: {this.props.userAge}</h3>
+        <h3>Experience: {this.props.experience}</h3>
       </div>
     );
   }

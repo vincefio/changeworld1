@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Signin from './Components/Usersignin';
 import NameofBusiness from './Components/Projects';
@@ -9,18 +9,13 @@ import ChildToForm from './Components/ChildToForm';
 class App extends Component {
   render() {
     return (
-      <div>
+
       <div className="container">
-        <div className="row">
-          <div className="col-xs-10 col-xs-offset-1">
-              <Header/>
-          </div>
-        </div>
-       </div>
+        <Header/>
         <NameofBusiness />
         <Signin name={'Bertha'}/>
-  
       </div>
+
     );
   }
 }
